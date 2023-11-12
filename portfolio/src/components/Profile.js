@@ -1,22 +1,36 @@
-import { Grid, Typography, Avatar, IconButton, Button, LinearProgress, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { Grid, Typography, Avatar, IconButton, Button, LinearProgress, Accordion, AccordionSummary, AccordionDetails, SpeedDial, SpeedDialAction } from '@mui/material';
 import React from 'react';
 import myimg from '../img/MyImg.jpg';
 import angular from '../img/angular.png';
 import react from '../img/mern.png';
 import aspnet from '../img/web.png';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-import ChatIcon from '@mui/icons-material/Chat';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import GigBazaar from '../img/B.mp4'
+import Unimentor from '../img/Uni-Mentor.mp4'
+import wallsoft from '../img/wallsoft.jpg'
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import ProfileIcon from '@mui/icons-material/AccountBox';
+import SkillsIcon from '@mui/icons-material/Category';
+import ProjectsIcon from '@mui/icons-material/AccountTree';
+import ExperienceIcon from '@mui/icons-material/Work';
 
 const Profile = () => {
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <>
-    <div className='full-page-content' > 
+    {/* Profile */}
+    <div id="profile-section" className='full-page-content' > 
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
             <Typography variant='h4'>
@@ -27,24 +41,28 @@ const Profile = () => {
               <b>Software Developer</b>
             </Typography>
             <br/>
-            <Button variant='outlined' ><ChatIcon/>Lets Connect</Button>
-            <Button variant='contained' className='m-2'> <PermContactCalendarIcon/> Resume</Button>
+            <a href={`${process.env.PUBLIC_URL}/Resume Haris Muhammad Imran.pdf`} download="Haris_Muhammad_Imran_Resume.pdf">
+              <Button variant='contained' className='m-2'>
+                <PermContactCalendarIcon/> Resume
+              </Button>
+            </a>
+
             <br/>
             <div>
               <IconButton>
-                <InstagramIcon />
-              </IconButton>
-              <IconButton>
-                <FacebookIcon />
-              </IconButton>
-              <IconButton>
+              <a href="https://www.linkedin.com/in/haris-muhammad-imran-838b63230/" target="_blank" rel="noopener noreferrer">
                 <LinkedInIcon />
+              </a>
               </IconButton>
               <IconButton>
+              <a href="https://twitter.com/HarisMImran" target="_blank" rel="noopener noreferrer">
                 <TwitterIcon />
+              </a>
               </IconButton>
               <IconButton>
+              <a href="https://github.com/Haris357" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon />
+              </a>
               </IconButton>
             </div>
           </Grid>
@@ -53,7 +71,8 @@ const Profile = () => {
           </Grid>
         </Grid>
     </div>
-    <div className='full-page-content'>
+    {/* Skills */}
+    <div id="skills-section" className='full-page-content'>
       <Grid container spacing={2}>
         <Grid item xs={12} md={4}>
           <div className='shadow-lg p-3 mb-5 bg-white'>
@@ -160,15 +179,98 @@ const Profile = () => {
         </Grid>
       </Grid>
     </div>
-    <div className='full-page-content'>
+    {/* Projects */}
+    <div id="projects-section" className='full-page-content'>
       <Grid container spacing={2}>
-         <Grid item xs={12} md={12} >
-          <div className='shadow-lg p-3 mb-5 color'>
-            
+        <Grid item xs={12} md={4}>
+          <div className='shadow-lg p-3 mb-5 bg-white rounded video-container'>
+            <img src={wallsoft} style={{ width: '100%' }} alt="Logo" />
+            <div className="description">
+              As a software developer, I bring a wealth of skills and expertise to the table. With proficiency in .NET MVC, SQL, HTML, CSS, Entity Framework, and Bootstrap, I excel at crafting robust and user-friendly web applications. My role as a problem solver and troubleshooter is instrumental in identifying and resolving complex issues, ensuring seamless product development. My dedication to detail and passion for staying updated on the latest industry trends make me a valuable asset to any software development team.
+            </div>
           </div>
-         </Grid>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <div className='shadow-lg p-3 mb-5 bg-white rounded video-container'>
+            <video autoPlay loop muted playsInline style={{ width: '100%' }}>
+              <source src={GigBazaar} type="video/mp4" />
+            </video>
+            <div className="description">
+            Gig Bazaar, a dynamic marketplace powered by the MERN stack (React, MongoDB, Express, and Node.js), connects freelancers with job opportunities and clients with top talent. This platform is enriched with Web3 integration, facilitating Ethereum-based payments, making it a cutting-edge solution. Currently in active development, Gig Bazaar promises to revolutionize the gig economy.
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <div className='shadow-lg p-3 mb-5 bg-white rounded video-container'>
+            <video autoPlay loop muted playsInline style={{ width: '100%' }}>
+              <source src={Unimentor} type="video/mp4" />
+            </video>
+            <div className="description">
+            Unimentor is your ultimate student guide to navigating the university experience. Built with AngularJS and powered by Firebase, Unimentor provides a seamless and dynamic platform to help students succeed in their academic journey. With a sleek and user-friendly interface designed using Material UI, Unimentor offers students a comprehensive set of tools and resources to enhance their university life. From academic support to social connections, Unimentor is your trusted companion on the path to educational success.
+            </div>
+          </div>
+        </Grid>
       </Grid>
     </div>
+    {/* Work Experience */}
+    <div id="work-experience-section" className='full-page-content' >
+      <Grid container spacing={2} >
+        <Grid item xs={12} >
+        <div className='shadow-lg p-3 bg-white rounded' >
+          <Grid container spacing={1} >
+            <Grid item xs={2} >
+            <img src={wallsoft} width={100} className='img-fluid' alt="Logo" />
+            </Grid>
+            <Grid item xs={10} >
+            <h4><b>Wallsoft Technologies</b></h4>
+            <h6><b>Part-time ' More Than 2 yrs</b></h6>
+            <h6>Karachi,Sindh,Pakistan ' On-site</h6>
+            </Grid>
+            <Grid item xs={12}>
+              <h4><b>Software Developer</b></h4>
+              <h5>Nov 2021 - Present</h5>
+              <h6><b>MVC5 | .NET Entity FrameWork | SQL SERVER</b></h6>
+              <h6><b>Skills</b></h6>
+              <p>HTML5 ' CSS ' Bootstrap(FrameWork) ' Microsoft SQL Server ' ASP .NET MVC ' JavaScript</p>
+            </Grid>
+            <br/>
+            <Grid item xs={12}>
+              <h4><b>Internship Trainee</b></h4>
+              <h5>Aug 2021 - Nov 2021</h5>
+            </Grid>
+          </Grid>
+          </div>
+        </Grid>
+      </Grid>
+    </div>
+
+    {/* Speed Dial */}
+    <SpeedDial
+        ariaLabel="SpeedDial navigation"
+        sx={{ position: 'fixed', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+      >
+        <SpeedDialAction
+          icon={<ProfileIcon />}
+          tooltipTitle="Profile"
+          onClick={() => scrollToSection('profile-section')}
+        />
+        <SpeedDialAction
+          icon={<SkillsIcon />}
+          tooltipTitle="Skills"
+          onClick={() => scrollToSection('skills-section')}
+        />
+        <SpeedDialAction
+          icon={<ProjectsIcon />}
+          tooltipTitle="Projects"
+          onClick={() => scrollToSection('projects-section')}
+        />
+        <SpeedDialAction
+          icon={<ExperienceIcon />}
+          tooltipTitle="Work Experience"
+          onClick={() => scrollToSection('work-experience-section')}
+        />
+      </SpeedDial>
     </>
   );
 };
